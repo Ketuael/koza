@@ -1,6 +1,7 @@
 db.sqlite3
-venv
 geckodriver.log
 geckodriver.exe
 __pycache__
 *.pyc
+/static
+venv
