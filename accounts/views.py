@@ -1,10 +1,9 @@
-from django.shortcuts import render
-from django.contrib import messages
 from django.core.mail import send_mail
 from django.urls import reverse
 from django.shortcuts import redirect
 from accounts.models import Token
 from django.contrib import auth, messages
+from django.contrib.auth import logout
 
 
 def send_login_email(request):
@@ -30,4 +29,8 @@ def login(request):
         auth.login(request, user)
     return redirect('/')
 
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
 
