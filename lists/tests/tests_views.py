@@ -1,9 +1,13 @@
 from django.test import TestCase
 from django.utils.html import escape
 from django.contrib.auth import get_user_model
+import unittest
 from lists.forms import (DUPLICATE_ITEM_ERROR, EMPTY_ITEM_ERROR,
-                         ExistingListItemForm, ItemForm,)
+                         ExistingListItemForm, ItemForm)
 from lists.models import Item, List
+from django.http import HttpRequest
+from lists.views import new_list2
+from unittest.mock import patch, Mock
 
 User = get_user_model()
 
@@ -22,7 +26,7 @@ class HomePageTest(TestCase):
         self.assertIsInstance(response.context['form'], ItemForm)
 
 
-class NewListTest(TestCase):
+class NewListViewIntegratedTest(TestCase):
 
     def test_can_save_a_POST_request(self):
         self.client.post('/lists/new', data={'text': 'A new list item'})
