@@ -60,6 +60,7 @@ class NewListTest(TestCase):
         list_ = List.objects.first()
         self.assertEqual(list_.owner, user)
 
+
 class ListViewTest(TestCase):
 
     def test_uses_list_template(self):
