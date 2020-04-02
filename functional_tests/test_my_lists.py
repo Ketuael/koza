@@ -3,6 +3,8 @@ from django.contrib.auth import BACKEND_SESSION_KEY, SESSION_KEY, get_user_model
 from django.contrib.sessions.backends.db import SessionStore
 from .base import FunctionalTest
 
+from unittest import skip
+
 User = get_user_model()
 
 
@@ -22,6 +24,7 @@ class MyListsTest(FunctionalTest):
             path='/',
         ))
 
+    @skip
     def test_logged_in_users_lists_are_saved_as_my_lists(self):
         # Edith is a logged-in user
         self.create_pre_authenticated_session('edith@example.com')

@@ -5,6 +5,8 @@ from lists.forms import (DUPLICATE_ITEM_ERROR, EMPTY_ITEM_ERROR,
                          ExistingListItemForm, ItemForm,)
 from lists.models import Item, List
 
+from unittest import skip
+
 
 # Create your tests here.
 
@@ -141,7 +143,7 @@ class ListViewTest(TestCase):
 class MyListsTest(TestCase):
 
     def test_my_lists_url_renders_my_lists_template(self):
-        response = self.client.get('/lists/users/')
+        response = self.client.get('/lists/users/a@b.com/')
         self.assertTemplateUsed(response, 'lists/my_lists.html')
 
 
