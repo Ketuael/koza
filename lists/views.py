@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
-from .models import Item, List
+from .models import List
 from lists.forms import ExistingListItemForm, ItemForm, NewListForm
 
 User = get_user_model()
@@ -33,6 +33,7 @@ def view_list(request, list_id):
 
 def share_list(request, list_id):
     list_ = List.objects.get(id=list_id)
+    list_.shared_with.add(request.POST['sharee'])
     return redirect(list_)
 
 
