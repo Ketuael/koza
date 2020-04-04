@@ -39,8 +39,6 @@ class SharingTest(FunctionalTest):
         # The page updates to say that it's shared with Oniciferous:
         list_page.share_list_with('oniciferous@example.com')
 
-        list_page.share_list_with('oniciferous@example.com')
-
         # Oniciferous now goes to the lists page with his browser
         self.browser = oni_browser
         MyListsPage(self).go_to_my_lists_page()
