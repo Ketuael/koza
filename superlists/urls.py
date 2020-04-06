@@ -25,5 +25,5 @@ urlpatterns = [
     path('', include(lists_urls)),
     path('lists/', include(lists_urls)),
     path('accounts/', include(accounts_urls)),
-    path('api/', include(router)),
+    path('api/', include(router.urls)),
 ]
