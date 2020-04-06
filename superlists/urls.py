@@ -16,7 +16,8 @@ Including another URLconf
 #from django.contrib import admin
 from django.urls import path, include
 from lists import urls as lists_urls
-from lists import api_urls
+#from lists import api_urls
+from lists.api import router
 from accounts import urls as accounts_urls
 
 urlpatterns = [
@@ -24,5 +25,5 @@ urlpatterns = [
     path('', include(lists_urls)),
     path('lists/', include(lists_urls)),
     path('accounts/', include(accounts_urls)),
-    path('api/', include(api_urls)),
+    path('api/', include(router)),
 ]
